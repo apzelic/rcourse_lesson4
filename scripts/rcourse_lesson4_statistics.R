@@ -28,7 +28,20 @@ extinct_seriesalignment.glm_sum <- summary(extinct_seriesalignment.glm)
 extinct_seriesXalignment.glm <- glm(extinct ~ series * alignment, family = "binomial", data = data_stats)
 extinct_seriesXalignment.glm_sum <-summary(extinct_seriesXalignment.glm)
 
-# Two variables interaction (change baseline for series)
-extinct_seriesxalignment_tng.glm = glm(extinct ~ relevel(series, "tng") * alignment, family = "binomial", data = data_stats)
+# Two variables interaction (CHANGE BASELINE for series to tng)
+extinct_seriesXalignment_tng.glm = glm(extinct ~ relevel(series, "tng") * alignment, family = "binomial", data = data_stats)
 
-extinct_seriesxalignment_tng.glm_sum = summary(extinct_seriesxalignment_tng.glm)
+extinct_seriesXalignment_tng.glm_sum = summary(extinct_seriesxalignment_tng.glm)
+
+#Two variables interaction (CHANGE BASELINE for alignment to friend)
+extinct_seriesXalignment_friend.glm = glm(extinct ~ series * relevel(alignment, "friend"), family=binomial,
+                                          data = data_stats)
+extinct_seriesXalignment_friend.glm_sum = summary(extinct_seriesXalignment_friend.glm)
+
+
+
+extinct_seriesXalignment.glm_sum
+extinct_seriesXalignment_tng.glm_sum
+extinct_seriesXalignment_friend.glm_sum
+
+
